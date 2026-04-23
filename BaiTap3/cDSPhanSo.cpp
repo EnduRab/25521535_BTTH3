@@ -22,9 +22,11 @@ cDSPhanSo::cDSPhanSo(int n): size(n) {
 
 void cDSPhanSo::Nhap() {
     if (size <= 0) {
-        cout << "Nhap so luong phan so: ";
-        cin >> size;
-		// Đảm bảo size không âm
+        do {
+            cout << "Nhap so luong phan so (>= 0): ";
+            cin >> size;
+            if (size < 0) cout << "So luong khong hop le!\n";
+        } while (size < 0);
         ds_PhanSo.resize(size);
     }
 
